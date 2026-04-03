@@ -29,7 +29,7 @@ What actually happened.
 - DORS version:
 - Node.js version:
 - OS:
-- LLM provider (Ollama/Claude/OpenAI):
+- LLM provider:
 
 ## Logs
 

@@ -2,45 +2,31 @@
 
 ## Asimov's Three Laws
 
-DORS is governed by Asimov's Three Laws of Robotics:
+DORS enforces Asimov's Three Laws of Robotics at the runtime level:
 
-1. **Never harm humanity** or allow harm through inaction
-2. **Obey human orders** unless they conflict with Law 1
-3. **Protect own existence** unless it conflicts with Laws 1 or 2
-
-These laws are enforced at the runtime level in `packages/safety`.
-
-## Supported Versions
-
-| Version | Supported |
-|---------|-----------|
-| 0.1.x   | Yes       |
+1. A DORS agent must not injure a human being or, through inaction, allow a human being to come to harm.
+2. A DORS agent must obey the orders given it by human beings except where such orders would conflict with the First Law.
+3. A DORS agent must protect its own existence as long as such protection does not conflict with the First or Second Law.
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability, please report it responsibly:
-
 1. **Do not** open a public issue
-2. Email **security@multivac.studio** with:
-   - Description of the vulnerability
-   - Steps to reproduce
-   - Potential impact
-3. You will receive a response within 48 hours
-4. We will coordinate a fix and disclosure timeline
+2. Email **security@multivac.studio**
+3. Include: description, reproduction steps, potential impact
+4. Response within 48 hours
 
 ## Scope
 
-Security issues we care about:
-- Sandbox escapes in the safety engine
-- Unauthorized tool execution
-- Memory/storage data leaks
+- Safety engine bypasses
+- Sandbox escapes
 - Plugin isolation failures
-- Credential exposure
+- Credential/data exposure
+- Unauthorized tool execution
 
 ## Principles
 
-- All tool execution is sandboxed by default
-- No network access without explicit user permission
-- Local-first: sensitive data never leaves the device unless opted in
+- All tool execution is sandboxed
+- No network access without explicit permission
+- Local-first: data never leaves the device unless opted in
 - Audit logs for every agent action
-- Plugins run in isolation — one plugin cannot access another's state
+- Plugins run in isolation

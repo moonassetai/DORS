@@ -1,6 +1,6 @@
 # Contributing to DORS
 
-Thanks for your interest in contributing to DORS.
+Thanks for your interest in DORS.
 
 ## Development Setup
 
@@ -13,51 +13,40 @@ pnpm build
 
 ## Project Structure
 
-- `apps/cli` — CLI tool (`npx dors init/run/config`)
-- `apps/web` — Dashboard and docs site
-- `packages/core` — Core runtime (LLM router, agent engine)
+- `apps/cli` — CLI tool (`dors init`, `dors chat`, `dors run`, `dors config`)
+- `packages/core` — LLM router, agent engine, event bus
 - `packages/soul` — SOUL.md parser and persona engine
-- `packages/voice` — Voice pipeline (Whisper + Piper)
-- `packages/safety` — Three Laws safety engine
-- `packages/storage` — SQLite + memory store
-- `packages/plugins` — Plugin SDK and loader
-- `plugins/` — Official plugins (Slack, Discord, MCP)
-- `personas/` — Example SOUL.md personas
+- `packages/storage` — SQLite database, conversations, memory
+- `packages/safety` — Three Laws engine, content policy, sandbox
+- `packages/plugins` — Plugin SDK, lifecycle hooks, loader
+- `personas/` — Built-in SOUL.md persona templates
 
 ## Workflow
 
 1. Fork the repo and create a branch from `main`
-2. `pnpm install` to install dependencies
+2. `pnpm install`
 3. Make your changes
-4. Add tests if applicable
-5. Run `pnpm test` and `pnpm typecheck`
-6. Open a pull request
+4. `pnpm test` — run tests
+5. `pnpm typecheck` — type check
+6. `pnpm lint` — lint
+7. Open a pull request
 
 ## Commit Messages
-
-We use conventional commits:
 
 ```
 feat: add Ollama adapter to LLM router
 fix: handle empty SOUL.md gracefully
 docs: update quickstart guide
-test: add persona parser tests
+test: add persona parser edge cases
 ```
 
 ## Code Style
 
 - TypeScript strict mode
-- No `any` types without justification
-- Functions under 50 lines
-- Files under 400 lines
-
-## Reporting Issues
-
-Use [GitHub Issues](https://github.com/multivac-os/dors/issues). Include:
-- DORS version (`npx dors --version`)
-- Node.js version
-- OS and architecture
-- Steps to reproduce
+- 2-space indentation
+- ESM modules
+- Functional where possible, classes for providers
+- Every package exports from `src/index.ts`
 
 ## License
 

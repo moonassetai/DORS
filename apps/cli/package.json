@@ -1,7 +1,7 @@
 {
   "name": "dors",
   "version": "0.1.0",
-  "description": "CLI for the DORS AGI framework",
+  "description": "DORS — Open-source AGI framework CLI",
   "license": "MIT",
   "type": "module",
   "bin": {
@@ -9,19 +9,27 @@
   },
   "files": ["dist"],
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
-    "lint": "echo 'lint ok'",
-    "test": "echo 'no tests yet'",
+    "lint": "echo ok",
+    "test": "vitest run --passWithNoTests",
     "clean": "rm -rf dist"
   },
   "dependencies": {
     "@dors/core": "workspace:*",
     "@dors/soul": "workspace:*",
-    "@dors/storage": "workspace:*"
+    "@dors/storage": "workspace:*",
+    "@dors/safety": "workspace:*",
+    "@dors/plugins": "workspace:*",
+    "commander": "^13.1.0",
+    "@inquirer/prompts": "^7.5.0",
+    "toml": "^3.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.8.0"
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.0.0",
+    "@types/node": "^22.12.0"
   }
 }

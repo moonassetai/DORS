@@ -1,25 +1,30 @@
 {
-  "name": "dors",
+  "name": "dors-monorepo",
   "private": true,
   "version": "0.1.0",
-  "description": "Open-source AGI framework. Born from Asimov, built by MULTIVAC.",
+  "description": "DORS — Open-source AGI framework",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/multivac-os/dors.git"
   },
-  "homepage": "https://dors.multivac.studio",
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "test": "turbo test",
     "typecheck": "turbo typecheck",
-    "clean": "turbo clean"
+    "clean": "turbo clean",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "turbo": "^2.5.0",
-    "typescript": "^5.8.0"
+    "typescript": "^5.8.0",
+    "prettier": "^3.5.0",
+    "@eslint/js": "^9.20.0",
+    "eslint": "^9.20.0",
+    "typescript-eslint": "^8.20.0"
   },
   "packageManager": "pnpm@9.15.4",
   "engines": {

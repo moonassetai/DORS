@@ -1,22 +1,20 @@
 {
   "name": "@dors/soul",
   "version": "0.1.0",
-  "description": "SOUL.md parser and persona engine",
+  "description": "SOUL.md parser and persona engine for DORS",
   "license": "MIT",
   "type": "module",
-  "exports": {
-    ".": "./dist/index.js"
-  },
-  "files": ["dist"],
+  "exports": { ".": "./src/index.ts" },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
+    "build": "tsup src/index.ts --format esm --dts",
     "typecheck": "tsc --noEmit",
-    "lint": "echo 'lint ok'",
-    "test": "echo 'no tests yet'",
+    "lint": "echo ok",
+    "test": "vitest run",
     "clean": "rm -rf dist"
   },
   "devDependencies": {
-    "typescript": "^5.8.0"
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.0.0"
   }
 }
