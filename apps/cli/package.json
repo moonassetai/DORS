@@ -12,7 +12,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
-    "lint": "echo ok",
+    "lint": "eslint src/",
     "test": "vitest run --passWithNoTests",
     "clean": "rm -rf dist"
   },

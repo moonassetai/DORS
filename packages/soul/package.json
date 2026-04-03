@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts",
     "typecheck": "tsc --noEmit",
-    "lint": "echo ok",
+    "lint": "eslint src/",
     "test": "vitest run",
     "clean": "rm -rf dist"
   },

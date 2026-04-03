@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { LLMRouter } from '../llm-router/router.js';
-import type { ChatResponse, LLMProvider, StreamChunk } from '../llm-router/types.js';
+import type { LLMProvider, StreamChunk } from '../llm-router/types.js';
 
 function createMockProvider(
   name: string,
