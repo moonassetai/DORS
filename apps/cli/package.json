@@ -1,0 +1,27 @@
+{
+  "name": "dors",
+  "version": "0.1.0",
+  "description": "CLI for the DORS AGI framework",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "dors": "./dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo 'lint ok'",
+    "test": "echo 'no tests yet'",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@dors/core": "workspace:*",
+    "@dors/soul": "workspace:*",
+    "@dors/storage": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}

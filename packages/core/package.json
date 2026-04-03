@@ -1,0 +1,28 @@
+{
+  "name": "@dors/core",
+  "version": "0.1.0",
+  "description": "DORS core runtime — LLM router and agent engine",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./router": "./dist/router/index.js",
+    "./agent": "./dist/agent/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo 'lint ok'",
+    "test": "echo 'no tests yet'",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@dors/soul": "workspace:*",
+    "@dors/storage": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.0"
+  }
+}
