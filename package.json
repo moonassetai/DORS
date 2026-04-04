@@ -1,34 +1,30 @@
 {
   "name": "dors-monorepo",
-  "private": true,
   "version": "0.1.0",
-  "description": "DORS — Open-source AGI framework",
+  "private": true,
   "type": "module",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/multivac-os/dors.git"
-  },
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "test": "turbo test",
-    "typecheck": "turbo typecheck",
-    "clean": "turbo clean",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
+    "clean": "turbo run clean"
   },
   "devDependencies": {
-    "turbo": "^2.5.0",
-    "typescript": "^5.8.0",
-    "prettier": "^3.5.0",
-    "@eslint/js": "^9.20.0",
-    "eslint": "^9.20.0",
-    "typescript-eslint": "^8.20.0"
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^8.58.0",
+    "@typescript-eslint/parser": "^8.58.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.2.0",
+    "tsup": "^8.0.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
   },
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@9.1.0",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.0.0"
   }
 }

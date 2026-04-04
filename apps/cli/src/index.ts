@@ -1,25 +1,24 @@
 import { Command } from 'commander';
-import { initCommand } from './commands/init.js';
 import { chatCommand } from './commands/chat.js';
+import { initCommand } from './commands/init.js';
 import { runCommand } from './commands/run.js';
 import { configCommand } from './commands/config.js';
-
-const PURPLE = '\x1b[35m';
-const BOLD = '\x1b[1m';
-const DIM = '\x1b[2m';
-const RESET = '\x1b[0m';
 
 const program = new Command();
 
 program
   .name('dors')
-  .version('0.1.0')
-  .description(
-    `${PURPLE}${BOLD}DORS${RESET} — Open-source AGI framework\n${DIM}Born from Asimov, built by MULTIVAC.${RESET}`,
-  )
-  .addCommand(initCommand)
-  .addCommand(chatCommand)
-  .addCommand(runCommand)
-  .addCommand(configCommand);
+  .description('DORS — Local-first, LLM-agnostic AGI framework')
+  .version('0.1.0');
+
+program.addCommand(chatCommand);
+program.addCommand(initCommand);
+program.addCommand(runCommand);
+program.addCommand(configCommand);
+
+// Default to chat if no subcommand given
+program.action(() => {
+  chatCommand.parseAsync(process.argv.slice(2));
+});
 
 program.parse();

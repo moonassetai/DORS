@@ -1,169 +1,103 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dors-logo-dark.svg">
-    <img alt="DORS" src="docs/assets/dors-logo-light.svg" width="200">
-  </picture>
-</p>
+# DORS
 
-<h1 align="center">DORS</h1>
+**Local-first, LLM-agnostic, modular AGI framework.**
 
-<p align="center">
-  <strong>Open-source AGI framework. Born from Asimov, built by MULTIVAC.</strong>
-</p>
+Named after Dors Venabili — the Tiger Woman from Asimov's Foundation. Fiercely loyal, brilliant, witty, and secretly more capable than anyone realizes.
 
-<p align="center">
-  <a href="https://github.com/multivac-os/dors/actions"><img src="https://img.shields.io/github/actions/workflow/status/multivac-os/dors/ci.yml?branch=main&style=flat" alt="CI"></a>
-  <a href="https://github.com/multivac-os/dors/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat" alt="License"></a>
-  <a href="https://www.npmjs.com/package/dors"><img src="https://img.shields.io/npm/v/dors?style=flat&color=7C3AED" alt="npm"></a>
-</p>
-
-<p align="center">
-  <a href="#quickstart">Quickstart</a> · <a href="#features">Features</a> · <a href="#architecture">Architecture</a> · <a href="https://dors.multivac.studio">Docs</a> · <a href="#contributing">Contributing</a>
-</p>
-
----
-
-## What is DORS?
-
-DORS is a **local-first, LLM-agnostic, modular AGI framework** — not a chatbot. It's an open-source runtime that lets anyone build, deploy, and customize AI agents on any device.
-
-You define a persona in a `SOUL.md` file, point it at any LLM (local Ollama or cloud APIs), and DORS handles routing, memory, safety, and tool use.
-
-```
-┌──────────────────────────────────────────────────────┐
-│                    DORS Runtime                      │
-├──────────────────────────────────────────────────────┤
-│                                                      │
-│   ┌──────────┐  ┌──────────┐  ┌──────────────────┐  │
-│   │ SOUL.md  │  │  Plugin  │  │   LLM Router     │  │
-│   │ Persona  │  │  System  │  │  Ollama · Claude  │  │
-│   │ Engine   │  │          │  │  OpenAI · Any     │  │
-│   └────┬─────┘  └────┬─────┘  └────────┬─────────┘  │
-│        └──────────────┼─────────────────┘            │
-│                       │                              │
-│   ┌───────────────────┴────────────────────────────┐ │
-│   │  Agent Engine · Safety · Memory · Events       │ │
-│   └───────────────────┬────────────────────────────┘ │
-│                       │                              │
-│   ┌───────────────────┴────────────────────────────┐ │
-│   │              SQLite (local-first)               │ │
-│   └─────────────────────────────────────────────────┘ │
-│                                                      │
-└──────────────────────────────────────────────────────┘
-```
-
-## Quickstart
-
-```bash
-# Initialize a new agent
-npx dors init
-
-# Start chatting
-dors chat
-```
-
-The init wizard walks you through:
-1. **Name your AI** (default: DORS)
-2. **Choose a personality** — DORS, ORACLE, COMPANION, or custom SOUL.md
-3. **Select your LLM** — Ollama (local/free), Claude API, or OpenAI
-4. **Enable voice** — optional Whisper STT + Piper TTS
+> DORS is NOT a chatbot. It's an open-source architecture anyone can install and build their own personal AI on top of.
 
 ## Features
 
-### LLM Router
-Route to any model — local or cloud. Ollama, Claude, OpenAI, or any OpenAI-compatible endpoint. Automatic failover: local → cloud → error. Streaming responses out of the box.
+- **Any Device** — Mac, Windows, Linux
+- **Any LLM** — Ollama (local), Claude, OpenAI, Groq, Mistral
+- **Offline First** — Local LLMs via Ollama, all data on your device
+- **Customizable Personality** — SOUL.md system for persona definition
+- **4 Core Tools** — read, write, edit, bash (Pi-inspired, benchmark-topping)
+- **Extension System** — Hot-reload plugins, custom tools, custom UI
+- **Privacy First** — All data stays on YOUR device
+- **Governed by Asimov's Three Laws**
 
-### SOUL.md Personas
-Define personality, knowledge, communication style, and behavioral boundaries in a single Markdown file. Three built-in personas. Create your own or share with the community.
+## Quick Start
 
-### Three Laws Safety Engine
-Every interaction passes through Asimov's Three Laws. Configurable safety levels (permissive, standard, strict). Content policy enforcement. Capability sandboxing for plugins.
+```bash
+# Install
+npx dors init
 
-### Local-First Storage
-SQLite for everything — conversations, memory, agent state. Works offline. Your data stays on your device.
+# Start chatting
+npx dors chat
+```
 
-### Plugin System
-Extend DORS with plugins for Slack, Discord, MCP servers, or build your own. Plugins declare permissions. Users approve on install. Sandboxed execution.
+Or install globally:
 
-### Event Bus
-Pub/sub event system connecting all modules. Enables real-time features, multi-agent coordination, and plugin communication.
+```bash
+pnpm add -g dors
+dors init
+dors chat
+```
 
 ## Architecture
 
 ```
-dors/
-├── apps/cli/           # CLI — dors init, chat, run, config
-├── packages/
-│   ├── core/           # LLM router + agent engine + events
-│   ├── soul/           # SOUL.md parser + persona engine
-│   ├── storage/        # SQLite conversations + memory
-│   ├── safety/         # Three Laws engine + sandbox
-│   └── plugins/        # Plugin SDK + loader
-└── personas/           # Built-in SOUL.md templates
+┌─────────────────────────────────────────────┐
+│                  dors CLI                     │
+│              (Commander.js)                   │
+├─────────────────────────────────────────────┤
+│              @dors/agent                      │
+│        (SOUL.md + config + agent)             │
+├──────────┬──────────┬───────────┬────────────┤
+│ @dors/ai │@dors/core│ @dors/tui │  @dors/ext │
+│ LLM      │ Agent    │ Terminal  │  Extension │
+│ Router   │ Loop +   │ Interface │  System    │
+│ Ollama   │ Storage  │ Markdown  │  Hooks     │
+│ Claude   │ Safety   │ Streaming │  Loader    │
+│ OpenAI   │ Tools    │ Spinner   │  Registry  │
+└──────────┴──────────┴───────────┴────────────┘
 ```
-
-### Packages
-
-| Package | Description |
-|---------|-------------|
-| `@dors/core` | LLM router (Ollama, Claude, OpenAI), agent runtime, event bus |
-| `@dors/soul` | SOUL.md parser, persona-to-system-prompt converter |
-| `@dors/storage` | SQLite database, conversation CRUD, persistent memory |
-| `@dors/safety` | Three Laws engine, content policy, capability sandbox |
-| `@dors/plugins` | Plugin manifest, lifecycle hooks, loader |
 
 ## Personas
 
-| Persona | Style | Best For |
-|---------|-------|----------|
-| `dors` | Sharp, tactical, protective | Security, ops, development |
-| `oracle` | Analytical, data-driven | Research, analysis, forecasting |
-| `companion` | Warm, supportive | Personal assistant, learning |
+DORS ships with three personas defined in `SOUL.md` files:
+
+| Persona | Archetype | Style |
+|---------|-----------|-------|
+| **DORS** | Tactical guardian | Direct, confident, witty |
+| **ORACLE** | Analytical forecaster | Measured, data-driven |
+| **COMPANION** | Supportive coach | Warm, patient, encouraging |
+
+Create your own by adding a `.soul.md` file to `~/.dors/personas/`.
 
 ## Configuration
 
-DORS stores its config at `~/.dors/config.toml`:
-
 ```toml
-[agent]
+# ~/.dors/config.toml
+
+[identity]
 name = "DORS"
-persona = "SOUL.md"
+persona = "dors"
 
 [llm]
 provider = "ollama"
-model = "qwen3.5:4b"
-
-[storage]
-driver = "sqlite"
-path = "data/dors.db"
+model = "qwen3:14b"
 
 [safety]
-level = "standard"
 three_laws = true
+allow_shell = true
+allow_network = false
 ```
 
-## Attribution
+## Development
 
-**DORS** is named after [Dors Venabili](https://en.wikipedia.org/wiki/Dors_Venabili) from Isaac Asimov's *Foundation* prequels — a humaniform robot who protected Hari Seldon with unwavering devotion.
-
-**MULTIVAC** is named after the supercomputer from Asimov's *"The Last Question"* (1956).
-
-These names are used as a tribute to **Isaac Asimov (1920–1992)**.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). We welcome contributions of all kinds — code, docs, personas, plugins.
-
-## Security
-
-See [SECURITY.md](SECURITY.md) for our security policy. Asimov's Three Laws are enforced at the runtime level.
+```bash
+pnpm install
+pnpm build
+pnpm test
+pnpm lint
+```
 
 ## License
 
-[MIT](LICENSE) — free for personal and commercial use.
+MIT — free forever.
 
----
+## Credits
 
-<p align="center">
-  Built by <a href="https://multivac.studio">MULTIVAC</a>
-</p>
+Built by [MULTIVAC](https://multivac.studio). Named after Asimov's Tiger Woman.

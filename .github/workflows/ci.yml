@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -23,12 +23,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: pnpm
+          cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm typecheck
+      - run: pnpm lint
 
       - run: pnpm test
+
+      - run: pnpm typecheck
 
       - run: pnpm build

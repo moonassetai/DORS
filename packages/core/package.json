@@ -1,28 +1,27 @@
 {
   "name": "@dors/core",
   "version": "0.1.0",
-  "description": "DORS core runtime — LLM router, agent engine, event bus",
-  "license": "MIT",
   "type": "module",
-  "exports": { ".": "./src/index.ts" },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": { "import": "./dist/index.js", "types": "./dist/index.d.ts" }
+  },
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts",
-    "dev": "tsup src/index.ts --format esm --dts --watch",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint src/",
+    "build": "tsup",
     "test": "vitest run",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.52.0",
-    "openai": "^4.90.0",
-    "@dors/soul": "workspace:*",
-    "@dors/storage": "workspace:*",
-    "@dors/safety": "workspace:*"
+    "@dors/ai": "workspace:*",
+    "better-sqlite3": "^11.0.0"
   },
   "devDependencies": {
-    "tsup": "^8.4.0",
-    "typescript": "^5.8.0",
-    "vitest": "^3.0.0"
+    "@types/better-sqlite3": "^7.6.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
   }
 }
