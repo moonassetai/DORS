@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/DORS_Final.png" alt="DORS — Dors Venabili" width="600">
+</p>
+
 # DORS
 
 **Local-first, LLM-agnostic, modular AGI framework.**
