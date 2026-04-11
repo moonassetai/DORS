@@ -19,6 +19,14 @@
   <a href="CONTRIBUTING.md">Contributing</a>
 </p>
 
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=vp8qL6kfjQs">
+    <img src="https://img.youtube.com/vi/vp8qL6kfjQs/maxresdefault.jpg" alt="To The Moon" width="560">
+  </a>
+  <br>
+  <em>To The Moon</em>
+</p>
+
 ---
 
 In 1956, Isaac Asimov imagined a machine that spent eternity learning.
