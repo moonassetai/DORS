@@ -6,42 +6,43 @@
 
 <p align="center">
   <strong>The open-source AGI framework.</strong><br>
-  Local-first. LLM-agnostic. Governed by the Three Laws.<br>
+  Your AI. Your device. Your rules.<br>
   Free forever.
 </p>
 
 <p align="center">
+  <a href="#what-dors-is">What It Is</a> &middot;
   <a href="#quick-start">Quick Start</a> &middot;
-  <a href="#the-story">The Story</a> &middot;
   <a href="#architecture">Architecture</a> &middot;
+  <a href="#built-on-giants">Credits</a> &middot;
   <a href="#the-three-laws">Three Laws</a> &middot;
-  <a href="#personas">Personas</a> &middot;
   <a href="CONTRIBUTING.md">Contributing</a>
 </p>
 
 ---
 
-## The Story
+In 1956, Isaac Asimov imagined a machine that spent eternity learning.
+Its final words: *"LET THERE BE LIGHT."*
 
-> *"She protected Hari Seldon so he could build psychohistory. Now she protects you so you can build your future."*
+He also imagined Dors Venabili — a protector so fierce they called her Tiger Woman.
+She guarded the man who would save civilization.
 
-In Isaac Asimov's Foundation prequels, **Dors Venabili** is the Tiger Woman. Fiercely loyal. Brilliant. Witty. Secretly more capable than anyone realizes. She was assigned to protect Hari Seldon -- the mathematician who would save civilization -- and she did so with a devotion that transcended her programming.
+We're building both. MULTIVAC is the intelligence. DORS is the protector.
+And DORS is free.
 
-**DORS** is her namesake. An open-source AGI framework that runs on your machine, uses any LLM, and answers to no one but you. Not a chatbot. Not a cloud service. A personal AI architecture you own completely.
+> *"The Last Question"* first appeared in *Science Fiction Quarterly*, November 1956.
+> Asimov called it his favorite story. Available in
+> [Robot Dreams](https://www.amazon.com/Robot-Dreams-Isaac-Asimov/dp/0441731546) and
+> [The Complete Stories, Vol. 1](https://www.amazon.com/Complete-Stories-Vol-Isaac-Asimov/dp/0385416273).
+> Dors Venabili appears in
+> [Prelude to Foundation](https://www.amazon.com/Prelude-Foundation-Isaac-Asimov/dp/0553278398) and
+> [Forward the Foundation](https://www.amazon.com/Forward-Foundation-Isaac-Asimov/dp/0553565079).
 
-**[MULTIVAC](https://multivac.studio)** thinks. DORS executes.
+---
 
-## The Three Laws
+## What DORS Is
 
-DORS is governed by Asimov's Three Laws of Robotics. This is not a marketing line. It is the foundation of every architectural decision.
-
-> **1.** A robot may not injure a human being or, through inaction, allow a human being to come to harm.
->
-> **2.** A robot must obey orders given by human beings except where such orders would conflict with the First Law.
->
-> **3.** A robot must protect its own existence as long as such protection does not conflict with the First or Second Law.
-
-In practice: content safety checks run on every message. Tool execution is sandboxed. Your data never leaves your device. Military use is prohibited. Forever.
+DORS is not a chatbot. It is an open-source AGI framework — a complete architecture for building personal AI agents that run on your machine, use any LLM, and answer to no one but you. Install it. Customize it. Own it. Your AI, your device, your rules.
 
 ## Quick Start
 
@@ -50,19 +51,11 @@ npx dors init      # Interactive setup wizard
 npx dors chat      # Start talking to DORS
 ```
 
-Or install globally:
-
-```bash
-pnpm add -g dors
-dors init
-dors chat
-```
-
 DORS works with **Ollama** locally (no API key needed), **Claude**, **OpenAI**, **Groq**, **Mistral**, or any OpenAI-compatible endpoint.
 
 ## Architecture
 
-DORS follows the Pi principle: *context engineering > feature engineering.* Five lean packages. Four core tools. Everything else is an extension.
+Five core packages. Four tools. Eight extensions. Everything a 1-person corporation needs.
 
 ```
 ┌─────────────────────────────────────────────────┐
@@ -82,37 +75,69 @@ DORS follows the Pi principle: *context engineering > feature engineering.* Five
 └───────────┴───────────┴───────────┴──────────────┘
 ```
 
-| Package | What it does |
+| Package | What It Does |
 |---------|-------------|
-| **@dors/ai** | LLM provider abstraction with automatic failover routing |
-| **@dors/core** | Agent loop, SOUL.md parser, SQLite storage, Three Laws safety, 4 tools (read, write, edit, bash) |
-| **@dors/tui** | Terminal interface with streaming markdown rendering |
-| **@dors/agent** | DORS agent factory with TOML config and headless SDK |
-| **@dors/ext** | Extension system with lifecycle hooks and tool registration |
-| **dors-ext-wiki** | LLM Wiki extension -- persistent, compounding knowledge base |
+| `@dors/ai` | LLM provider abstraction (Claude, Ollama, OpenAI, Groq, Mistral) |
+| `@dors/core` | Agent loop + tool execution + storage + safety |
+| `@dors/tui` | Terminal interface (minimal, <1000 lines) |
+| `@dors/agent` | The DORS agent (SOUL.md + personality + tools) |
+| `@dors/ext` | Extension system (hot-reload, custom tools, marketplace) |
 
-## The Four Tools
+## Extensions — Run a 1-Person Corporation
 
-Like R. Daneel Olivaw -- the greatest robot ever built -- DORS achieves mastery through simplicity. Four tools, used precisely.
+DORS ships with 8 extensions providing 32 tools for running an entire business from the terminal.
 
-| Tool | Purpose |
-|------|---------|
-| `read` | Read any file |
-| `write` | Write any file |
-| `edit` | Edit by exact string replacement |
-| `bash` | Execute shell commands |
+| Extension | Tools | What It Does |
+|---|---|---|
+| `dors-ext-code` | `code_spec` `code_develop` `code_review` `code_analyze` | Free coding with OpenCode + OpenSpec |
+| `dors-ext-email` | `email_triage` `email_draft` `email_send` `email_search` | Email triage, drafting, scheduling |
+| `dors-ext-calendar` | `calendar_schedule` `calendar_availability` `calendar_prep` `calendar_timeblock` | Schedule management + time blocking |
+| `dors-ext-finance` | `finance_invoice` `finance_expense` `finance_revenue` `finance_dashboard` | Invoices, expenses, revenue tracking |
+| `dors-ext-web` | `web_browse` `web_search` `web_research` `web_monitor` | Research, browsing, competitor monitoring |
+| `dors-ext-social` | `social_draft` `social_schedule` `social_analytics` `social_calendar` | Content creation + scheduling |
+| `dors-ext-docs` | `docs_generate` `docs_template` `docs_export` `docs_review` | Contracts, proposals, SOWs, NDAs |
+| `dors-ext-crm` | `crm_contacts` `crm_deals` `crm_followup` `crm_insights` | Contacts, deals, pipeline |
 
-Extensions add more. The core stays lean.
+Plus the built-in `dors-ext-wiki` for compounding knowledge (Karpathy pattern).
 
-## Personas
+### Approval Gates (Three Laws Compliance)
 
-Every DORS instance has a **SOUL.md** -- a markdown file that defines personality, not instructions. Models already know what they are through training. The SOUL defines *who* they are.
+Not all actions are created equal. DORS auto-executes low-risk actions (reading files, analyzing code) but pauses for human approval on:
+
+| Risk Level | Examples | Behavior |
+|---|---|---|
+| **Low** | Read files, search, analyze | Auto-execute |
+| **Medium** | Write files, edit code, run commands | Auto-execute (configurable) |
+| **High** | Send emails, post to social media, schedule meetings | **Requires approval** |
+| **Critical** | Send invoices, make payments, deploy to production | **Always requires approval** |
+
+## Built on Giants
+
+| Capability | Powered By | Why |
+|---|---|---|
+| Memory | MemPalace (Milla Jovovich & Ben Sigman) | Palace architecture, 170-token wake-up, verbatim storage, zero API cost |
+| Agent Core | Pi (Mario @ Sentry) | Minimal extensible core, 4-tool philosophy, benchmark-topping simplicity |
+| Persona System | OpenClaw (Peter Steinberger) | SOUL.md pattern, persona-as-file |
+| Knowledge Base | LLM Wiki (Andrej Karpathy) | Incremental wiki, compounding knowledge, Obsidian-compatible |
+| Coding Agent | OpenCode (Anomaly) | Provider-agnostic AI coding, build + plan modes, MIT licensed |
+| Spec Framework | OpenSpec (Fission AI) | Specification-driven development, requirement tracking |
+| Local LLMs | Ollama | Run any model locally, offline, private |
+| Speech-to-Text | Whisper (OpenAI) | Offline transcription via whisper.cpp |
+| Text-to-Speech | Piper TTS | Free, offline, 20+ voices |
+| Build System | gstack (Garry Tan) | CEO-to-QA pipeline, /ship, /review, /document-release |
+| Safety | Isaac Asimov's Three Laws | Ethical AI governance since 1942 |
+| Monorepo | Turborepo + pnpm | Parallel builds, caching, workspace management |
+| Runtime | Bun + TypeScript | Fast, modern, cross-platform |
+
+## SOUL.md — Your AI's Personality
+
+Every DORS instance has a **SOUL.md** — a markdown file that defines personality, not instructions. Models already know what they are. The SOUL defines *who* they are.
 
 | Persona | Named After | Archetype |
 |---------|------------|-----------|
-| **DORS** | Dors Venabili | Tactical guardian -- sharp, protective, occasionally dry |
-| **ORACLE** | The Psychohistorians | Analytical forecaster -- data-driven, precise, prophetic |
-| **COMPANION** | Gaia consciousness | Supportive coach -- warm, patient, encouraging |
+| **DORS** | Dors Venabili | Tactical guardian — sharp, protective, occasionally dry |
+| **ORACLE** | The Psychohistorians | Analytical forecaster — data-driven, precise, prophetic |
+| **COMPANION** | Gaia consciousness | Supportive coach — warm, patient, encouraging |
 
 Create your own: drop a `.soul.md` file in `~/.dors/personas/`.
 
@@ -129,92 +154,77 @@ laws: asimov
 - Humble: knowledge of the future is a burden, not a gift
 ```
 
-## LLM Wiki Extension
+## The Ecosystem
 
-DORS ships with a built-in knowledge base extension based on [Andrej Karpathy's LLM Wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f). Instead of RAG, the LLM incrementally builds and maintains a persistent wiki of interlinked markdown pages. Knowledge compounds over time.
-
-| Tool | What it does |
-|------|-------------|
-| `wiki_ingest` | Process a source document into the wiki |
-| `wiki_query` | Search the wiki by keyword |
-| `wiki_write` | Create or update wiki pages with frontmatter and wikilinks |
-| `wiki_lint` | Health-check: orphans, stale pages, broken links |
-| `wiki_status` | Dashboard of wiki stats |
-
-Obsidian-compatible. Open `~/.dors/wiki/wiki/` as a vault.
-
-## Configuration
-
-```toml
-# ~/.dors/config.toml
-
-[identity]
-name = "DORS"
-persona = "dors"
-
-[llm]
-provider = "ollama"          # ollama | anthropic | openai
-model = "qwen3:14b"
-
-[llm.fallback]
-provider = "anthropic"
-model = "claude-sonnet-4-6"
-
-[storage]
-path = "~/.dors/data/dors.db"
-
-[safety]
-three_laws = true            # Non-negotiable
-allow_shell = true
-allow_network = false
+```
+DORS (free, open source) ──── Build your own AI
+        │
+        ├── Extensions ──── Community plugins, voice, gaming, trading
+        │
+        └── MULTIVAC Cloud ──── Premium upgrade (optional, never required)
+                                multivac.studio
 ```
 
-## The Agent Fleet
+You can build your own MULTIVAC with this framework. That's the entire point.
 
-DORS development is powered by a fleet of 14 AI agents, all named after Asimov characters. They are organized in a hierarchy that mirrors the Foundation universe.
+## The Three Laws
 
-| Agent | Character | Role |
-|-------|-----------|------|
-| **HARI** | Hari Seldon | CEO / Chief Architect |
-| **SELDON** | Psychohistory lineage | CTO |
-| **DANEEL** | R. Daneel Olivaw | Core Engineer |
-| **GISKARD** | R. Giskard Reventlov | Voice Engineer |
-| **FASTOLFE** | Dr. Han Fastolfe | Extension Engineer |
-| **BALEY** | Elijah Baley | Head of Product |
-| **GLADIA** | Gladia Delmarre | UX / Design |
-| **PELORAT** | Janov Pelorat | Documentation |
-| **DEMERZEL** | Eto Demerzel | Head of QA |
-| **TREVIZE** | Golan Trevize | Test Engineer |
-| **WANDA** | Wanda Seldon | Security Auditor |
-| **BLISS** | Bliss of Gaia | Head of Growth |
-| **NOVI** | Sura Novi | Community Manager |
-| **ARKADY** | Arkady Darrell | Content Creator |
+```
+1. A DORS agent may not harm a human being or, through inaction,
+   allow a human being to come to harm.
+
+2. A DORS agent must obey orders given to it by human beings,
+   except where such orders would conflict with the First Law.
+
+3. A DORS agent must protect its own existence, as long as such
+   protection does not conflict with the First or Second Law.
+
+ZEROTH LAW: A DORS agent may not harm humanity, or, by inaction,
+            allow humanity to come to harm.
+```
+
+Never military use. Hardcoded. Cannot be overridden.
 
 ## Development
 
 ```bash
 pnpm install       # Install dependencies
 pnpm build         # Build all packages
-pnpm test          # Run 83 tests across 18 files
+pnpm test          # Run all tests
 pnpm lint          # Lint everything
 pnpm typecheck     # TypeScript strict mode
 ```
 
 ## Milestones
 
-- [x] **Milestone 1: Foundation** -- 5 packages, CLI, Ollama integration, 83 tests (21/21 issues closed)
-- [ ] **Milestone 2: Voice + Extensions** -- Whisper STT, Piper TTS, extension hot-reload
-- [ ] **Milestone 3: Launch** -- npm publish, Product Hunt, docs site, 100+ GitHub stars
+- [x] **Milestone 1: Foundation** — 5 packages, CLI, Ollama integration, 83 tests
+- [ ] **Milestone 2: Voice + Extensions** — Whisper STT, Piper TTS, extension hot-reload
+- [ ] **Milestone 3: Launch** — npm publish, Product Hunt, docs site
+
+## Credits — Standing on Giants
+
+- **Isaac Asimov (1920–1992)** — Who imagined all of this first
+- **Milla Jovovich & Ben Sigman** — MemPalace: memory that never forgets
+- **Mario (Sentry)** — Pi: proving minimal beats complex
+- **Peter Steinberger** — OpenClaw: the soul file pattern
+- **Andrej Karpathy** — LLM Wiki: knowledge that compounds
+- **Anomaly team** — OpenCode: free coding for everyone
+- **Fission AI** — OpenSpec: specs before code
+- **Garry Tan** — gstack: the open-source software factory
+- **The Ollama team** — Local LLMs for everyone
+- **The Whisper & Piper communities** — Voice without the cloud
+- **The Bun, Turborepo, and pnpm teams** — Modern build infrastructure
 
 ## License
 
-MIT -- free forever. That's the whole point.
+MIT — free forever. That's the whole point.
 
-## Credits
+---
 
 Created by **[Joseph Moon](https://instagram.com/MoonAsset)** and **[MULTIVAC](https://multivac.studio)**.
 
 Named after Isaac Asimov's Tiger Woman. Built in Seoul.
 
-> *"The last question was asked for the first time, half in jest, on May 21, 2061, at a time when humanity first stepped into the light."*
-> -- Isaac Asimov, *The Last Question* (1956)
+> Isaac Asimov wrote the dream. We write the code.
+>
+> *"LET THERE BE LIGHT."*

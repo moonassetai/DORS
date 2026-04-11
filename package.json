@@ -26,5 +26,9 @@
   "packageManager": "pnpm@9.1.0",
   "engines": {
     "node": ">=20.0.0"
-  }
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 }

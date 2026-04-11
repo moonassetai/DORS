@@ -1,0 +1,27 @@
+{
+  "name": "dors-ext-crm",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": { "import": "./dist/index.js", "types": "./dist/index.d.ts" }
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@dors/ai": "workspace:*",
+    "@dors/core": "workspace:*",
+    "@dors/ext": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}

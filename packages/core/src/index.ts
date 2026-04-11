@@ -11,6 +11,14 @@ export { ConversationStore } from './storage/conversations.js';
 export type { Conversation, StoredMessage } from './storage/conversations.js';
 export { MemoryStore } from './storage/memory.js';
 export type { MemoryEntry } from './storage/memory.js';
+export { MemPalaceBridge } from './storage/mempalace.js';
+export type {
+  PalaceLevel,
+  PalaceNode,
+  WakeUpContext,
+  MineOptions,
+  PalaceSearchResult,
+} from './storage/mempalace.js';
 export { checkThreeLaws } from './safety/three-laws.js';
 export type { SafetyCheck } from './safety/three-laws.js';
 export { Sandbox } from './safety/sandbox.js';
@@ -20,3 +28,15 @@ export { writeTool } from './tools/write.js';
 export { editTool } from './tools/edit.js';
 export { bashTool } from './tools/bash.js';
 export type { Tool, ToolResult } from './tools/types.js';
+export { Scheduler, SCHEDULES } from './scheduler/scheduler.js';
+export type {
+  ScheduledTask,
+  PlannedTask,
+  TaskAction,
+  TaskRisk,
+  TaskStatus,
+  Plan,
+  ApprovalRequest,
+} from './scheduler/types.js';
+export { ApprovalGate } from './approval/approval.js';
+export { Planner } from './planner/planner.js';

@@ -111,6 +111,50 @@ importers:
         specifier: ^2.0.0
         version: 2.1.9(@types/node@20.19.39)
 
+  packages/calendar:
+    dependencies:
+      '@dors/ai':
+        specifier: workspace:*
+        version: link:../ai
+      '@dors/core':
+        specifier: workspace:*
+        version: link:../core
+      '@dors/ext':
+        specifier: workspace:*
+        version: link:../ext
+    devDependencies:
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(postcss@8.5.8)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.4.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.0.0
+        version: 2.1.9(@types/node@20.19.39)
+
+  packages/code:
+    dependencies:
+      '@dors/ai':
+        specifier: workspace:*
+        version: link:../ai
+      '@dors/core':
+        specifier: workspace:*
+        version: link:../core
+      '@dors/ext':
+        specifier: workspace:*
+        version: link:../ext
+    devDependencies:
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(postcss@8.5.8)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.4.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.0.0
+        version: 2.1.9(@types/node@20.19.39)
+
   packages/core:
     dependencies:
       '@dors/ai':
@@ -123,6 +167,72 @@ importers:
       '@types/better-sqlite3':
         specifier: ^7.6.0
         version: 7.6.13
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(postcss@8.5.8)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.4.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.0.0
+        version: 2.1.9(@types/node@20.19.39)
+
+  packages/crm:
+    dependencies:
+      '@dors/ai':
+        specifier: workspace:*
+        version: link:../ai
+      '@dors/core':
+        specifier: workspace:*
+        version: link:../core
+      '@dors/ext':
+        specifier: workspace:*
+        version: link:../ext
+    devDependencies:
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(postcss@8.5.8)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.4.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.0.0
+        version: 2.1.9(@types/node@20.19.39)
+
+  packages/docs:
+    dependencies:
+      '@dors/ai':
+        specifier: workspace:*
+        version: link:../ai
+      '@dors/core':
+        specifier: workspace:*
+        version: link:../core
+      '@dors/ext':
+        specifier: workspace:*
+        version: link:../ext
+    devDependencies:
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(postcss@8.5.8)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.4.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.0.0
+        version: 2.1.9(@types/node@20.19.39)
+
+  packages/email:
+    dependencies:
+      '@dors/ai':
+        specifier: workspace:*
+        version: link:../ai
+      '@dors/core':
+        specifier: workspace:*
+        version: link:../core
+      '@dors/ext':
+        specifier: workspace:*
+        version: link:../ext
+    devDependencies:
       tsup:
         specifier: ^8.0.0
         version: 8.5.1(postcss@8.5.8)(typescript@5.9.3)
@@ -152,6 +262,50 @@ importers:
         specifier: ^2.0.0
         version: 2.1.9(@types/node@20.19.39)
 
+  packages/finance:
+    dependencies:
+      '@dors/ai':
+        specifier: workspace:*
+        version: link:../ai
+      '@dors/core':
+        specifier: workspace:*
+        version: link:../core
+      '@dors/ext':
+        specifier: workspace:*
+        version: link:../ext
+    devDependencies:
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(postcss@8.5.8)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.4.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.0.0
+        version: 2.1.9(@types/node@20.19.39)
+
+  packages/social:
+    dependencies:
+      '@dors/ai':
+        specifier: workspace:*
+        version: link:../ai
+      '@dors/core':
+        specifier: workspace:*
+        version: link:../core
+      '@dors/ext':
+        specifier: workspace:*
+        version: link:../ext
+    devDependencies:
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(postcss@8.5.8)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.4.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.0.0
+        version: 2.1.9(@types/node@20.19.39)
+
   packages/tui:
     dependencies:
       '@dors/ai':
@@ -166,6 +320,28 @@ importers:
       marked-terminal:
         specifier: ^7.0.0
         version: 7.3.0(marked@14.1.4)
+    devDependencies:
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(postcss@8.5.8)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.4.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.0.0
+        version: 2.1.9(@types/node@20.19.39)
+
+  packages/web:
+    dependencies:
+      '@dors/ai':
+        specifier: workspace:*
+        version: link:../ai
+      '@dors/core':
+        specifier: workspace:*
+        version: link:../core
+      '@dors/ext':
+        specifier: workspace:*
+        version: link:../ext
     devDependencies:
       tsup:
         specifier: ^8.0.0
