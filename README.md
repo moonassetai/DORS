@@ -125,6 +125,7 @@ Not all actions are created equal. DORS auto-executes low-risk actions (reading 
 | Speech-to-Text | Whisper (OpenAI) | Offline transcription via whisper.cpp |
 | Text-to-Speech | Piper TTS | Free, offline, 20+ voices |
 | Build System | gstack (Garry Tan) | CEO-to-QA pipeline, /ship, /review, /document-release |
+| Agent Fleet | Paperclip (@dotta) | Multi-agent orchestration, org charts, budgets, heartbeat protocol |
 | Safety | Isaac Asimov's Three Laws | Ethical AI governance since 1942 |
 | Monorepo | Turborepo + pnpm | Parallel builds, caching, workspace management |
 | Runtime | Bun + TypeScript | Fast, modern, cross-platform |
@@ -208,6 +209,7 @@ pnpm typecheck     # TypeScript strict mode
 - **Mario (Sentry)** — Pi: proving minimal beats complex
 - **Peter Steinberger** — OpenClaw: the soul file pattern
 - **Andrej Karpathy** — LLM Wiki: knowledge that compounds
+- **@dotta** — Paperclip: agent fleets as autonomous companies
 - **Anomaly team** — OpenCode: free coding for everyone
 - **Fission AI** — OpenSpec: specs before code
 - **Garry Tan** — gstack: the open-source software factory
