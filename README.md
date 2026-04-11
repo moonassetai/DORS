@@ -168,6 +168,38 @@ DORS (free, open source) ──── Build your own AI
 
 You can build your own MULTIVAC with this framework. That's the entire point.
 
+## The Agent Fleet
+
+DORS development is powered by a fleet of 25 AI agents, all named after Asimov characters. Orchestrated by [Paperclip](https://github.com/paperclipai/paperclip).
+
+| Agent | Character | Role |
+|-------|-----------|------|
+| **HARI** | Hari Seldon | CEO / Chief Architect |
+| **SELDON** | Psychohistory lineage | CTO |
+| **DANEEL** | R. Daneel Olivaw | Core Engineer |
+| **CALVIN** | Susan Calvin | Code/Dev Tools Lead |
+| **BRANNO** | Harla Branno | DevOps/Infrastructure |
+| **PALVER** | Preem Palver | Integration/API Agent |
+| **GENDIBAL** | Stor Gendibal | Data/Analytics |
+| **GISKARD** | R. Giskard Reventlov | Voice Engineer |
+| **FASTOLFE** | Dr. Han Fastolfe | Extension Engineer |
+| **BALEY** | Elijah Baley | Head of Product |
+| **GLADIA** | Gladia Delmarre | UX / Design |
+| **CHANNIS** | Bail Channis | Email Agent |
+| **ANDREW** | Andrew Martin | Calendar/Schedule Agent |
+| **MIS** | Ebling Mis | Web Research Agent |
+| **DORNICK** | Gaal Dornick | Legal/Docs Agent |
+| **HARDIN** | Salvor Hardin | CRM/Sales Agent |
+| **MALLOW** | Hober Mallow | Finance/CFO |
+| **DEMERZEL** | Eto Demerzel | Head of QA |
+| **TREVIZE** | Golan Trevize | Test Engineer |
+| **WANDA** | Wanda Seldon | Security Auditor |
+| **BLISS** | Bliss of Gaia | Head of Growth |
+| **JANDER** | Jander Panell | Social Media Agent |
+| **PELORAT** | Janov Pelorat | Documentation |
+| **NOVI** | Sura Novi | Community Manager |
+| **ARKADY** | Arkady Darrell | Content Creator |
+
 ## The Three Laws
 
 ```
