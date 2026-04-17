@@ -14,7 +14,7 @@ License: MIT — free forever
 
 - Monorepo: pnpm workspaces + Turborepo
 - Language: TypeScript + Bun
-- Packages: @dors/ai, @dors/core, @dors/tui, @dors/agent, @dors/ext, dors-ext-wiki
+- Packages: @dors/ai, @dors/core, @dors/tui, @dors/agent, @dors/ext, @dors/xp, dors-ext-wiki
 - Testing: Vitest
 - Linting: ESLint + Prettier
 - CLI: apps/cli (the `dors` command)
@@ -44,12 +44,14 @@ pnpm typecheck     # TypeScript strict mode
 
 ```
 apps/cli/          — The `dors` CLI (init, chat, run, config)
+apps/desktop/      — Tauri 2.0 native desktop app
 packages/ai/       — @dors/ai — LLM provider abstraction (Ollama, Claude, OpenAI)
 packages/core/     — @dors/core — Agent loop, tools, storage, safety, SOUL parser
 packages/tui/      — @dors/tui — Terminal interface (<1000 lines)
 packages/agent/    — @dors/agent — DORS agent factory + headless SDK
 packages/ext/      — @dors/ext — Extension system with hooks + registry
 packages/wiki/     — dors-ext-wiki — LLM Wiki extension (Karpathy pattern)
+packages/xp/       — @dors/xp — XP engine, level calculator, capability checker (Tokscale integration)
 packages/code/     — dors-ext-code — Coding with OpenCode + OpenSpec
 packages/email/    — dors-ext-email — Email triage, drafting, scheduling
 packages/calendar/ — dors-ext-calendar — Schedule + time blocking
@@ -116,22 +118,21 @@ Use /qa for testing
 - **The Whisper & Piper communities** — Voice without the cloud
 - **The Bun, Turborepo, and pnpm teams** — Modern build infrastructure
 
-## Skill routing
+## Bun APIs
 
-When the user's request matches an available skill, ALWAYS invoke it using the Skill
-tool as your FIRST action. Do NOT answer directly, do NOT use other tools first.
-The skill has specialized workflows that produce better results than ad-hoc answers.
+- `Bun.serve()` for HTTP/WebSocket/HTTPS (not express)
+- `bun:sqlite` for SQLite (not better-sqlite3)
+- `Bun.redis` for Redis (not ioredis)
+- `Bun.sql` for Postgres (not pg/postgres.js)
+- `Bun.file` over `node:fs` readFile/writeFile
+- `Bun.$\`cmd\`` instead of execa
+- HTML imports with `Bun.serve()` for frontend (not vite)
+- Bun auto-loads .env — no dotenv needed
 
-Key routing rules:
-- Product ideas, "is this worth building", brainstorming → invoke office-hours
-- Bugs, errors, "why is this broken", 500 errors → invoke investigate
-- Ship, deploy, push, create PR → invoke ship
-- QA, test the site, find bugs → invoke qa
-- Code review, check my diff → invoke review
-- Update docs after shipping → invoke document-release
-- Weekly retro → invoke retro
-- Design system, brand → invoke design-consultation
-- Visual audit, design polish → invoke design-review
-- Architecture review → invoke plan-eng-review
-- Save progress, checkpoint, resume → invoke checkpoint
-- Code quality, health check → invoke health
+## Deploy Configuration
+
+- Platform: Vercel
+- Production URL: https://multivac.studio
+- Deploy: auto on push to main
+- Health check: https://multivac.studio
+- Merge method: squash

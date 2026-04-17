@@ -9,3 +9,6 @@ dist/
 .env.*
 coverage/
 .gstack/
+_tmp_*
+~$*
+*.docx

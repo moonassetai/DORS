@@ -91,15 +91,27 @@ function createProvider(type: string, _model: string, apiKey?: string): LLMProvi
   }
 }
 
+const PERSONA_NAME_RE = /^[a-z0-9_-]+$/;
+
 function loadPersona(personaName: string): Persona | undefined {
+  if (!PERSONA_NAME_RE.test(personaName)) {
+    return undefined;
+  }
+
   const __dirname = dirname(fileURLToPath(import.meta.url));
 
-  // Check multiple possible persona locations
+  // Persona-specific paths take precedence over the home-dir SOUL.md fallback
+  // so that `dors chat -p oracle` doesn't silently load `~/.dors/SOUL.md`.
+  // The home SOUL.md acts as a fallback for the default persona ("dors") only.
   const paths = [
+    join(homedir(), '.dors', 'personas', `${personaName}.soul.md`),
     join(__dirname, '..', '..', '..', 'personas', `${personaName}.soul.md`),
     join(__dirname, '..', 'personas', `${personaName}.soul.md`),
-    join(homedir(), '.dors', 'personas', `${personaName}.soul.md`),
   ];
+  if (personaName === 'dors') {
+    paths.push(join(homedir(), '.dors', 'SOUL.md'));
+    paths.push(join(__dirname, '..', '..', '..', 'SOUL.md'));
+  }
 
   for (const p of paths) {
     if (existsSync(p)) {

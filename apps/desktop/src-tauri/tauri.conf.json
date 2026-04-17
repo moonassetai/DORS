@@ -1,0 +1,60 @@
+{
+  "$schema": "https://v2.tauri.app/schema/tauri.conf.json",
+  "productName": "DORS",
+  "version": "0.1.0",
+  "identifier": "ai.multivac.dors",
+  "build": {
+    "frontendDist": "../src",
+    "devUrl": "http://localhost:3000",
+    "beforeDevCommand": "",
+    "beforeBuildCommand": ""
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "DORS",
+        "width": 900,
+        "height": 700,
+        "minWidth": 600,
+        "minHeight": 500,
+        "decorations": true,
+        "transparent": false
+      }
+    ],
+    "trayIcon": {
+      "iconPath": "icons/icon.png",
+      "iconAsTemplate": true
+    },
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+  "plugins": {
+    "shell": {
+      "open": true,
+      "scope": [
+        {
+          "name": "bun-dors",
+          "cmd": "bun",
+          "args": true
+        }
+      ]
+    },
+    "updater": {
+      "active": true,
+      "endpoints": ["https://releases.multivac.studio/dors/{{target}}/{{arch}}/{{current_version}}"],
+      "dialog": true
+    }
+  }
+}

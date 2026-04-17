@@ -46,6 +46,7 @@ export function renderHelp(): string {
     ['/persona <name>', 'Switch persona (dors, oracle, companion)'],
     ['/model <name>', 'Switch model'],
     ['/memory', 'List stored memories'],
+    ['/save', 'Save conversation to database'],
     ['/quit', 'Exit DORS'],
   ];
 
